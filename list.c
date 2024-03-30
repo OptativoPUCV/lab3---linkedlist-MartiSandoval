@@ -86,11 +86,16 @@ void pushCurrent(List * list, void * data) {
     nuevo->next = NULL;
     list->tail = nuevo;
   }
-  else {
+  else if (list->current->next != NULL) {
     nuevo->next = list->current->next;
     nuevo->prev = list->current->prev;
     list->current->next->prev = nuevo;
     list->current->prev->next = nuevo;
+  }
+  else {
+    nuevo->prev = list->current;
+    nuevo->next = NULL;
+    list->current->next = nuevo;
   }
   list->current = nuevo;
 }
