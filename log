@@ -73,3 +73,18 @@ Sat 30 Mar 2024 09:25:14 PM UTC:
  tests:  9|3
 total_score: 35/70
 a2fcf27
+Sat 30 Mar 2024 10:18:19 PM UTC: 
+ list.c | 17 +++++++++--------
+ 1 file changed, 9 insertions(+), 8 deletions(-)
+In file included from test.c:5:
+list.c: In function ‘pushFront’:
+list.c:66:9: error: unused variable ‘nuevo’ [-Werror=unused-variable]
+   66 |   Node* nuevo = createNode(data);
+      |         ^~~~~
+list.c: In function ‘popCurrent’:
+list.c:91:9: error: unused variable ‘aux’ [-Werror=unused-variable]
+   91 |   Node* aux = list->current;
+      |         ^~~
+cc1: all warnings being treated as errors
+Compilation failed
+9b1972a
