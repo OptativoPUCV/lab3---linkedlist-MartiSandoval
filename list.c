@@ -124,15 +124,16 @@ void *popCurrent(List * list) {
     void* dato = list->tail->data;
     list->tail = list->current->prev;
     list->current->prev->next = NULL;
-    
+    return dato;
   }
   else {
     void* dato = list->current->data;
     list->current->prev->next = list->current->next;
     list->current->next->prev = list->current->prev;
+    return dato;
   }
   
-    return dato;
+    return NULL;
 }
 
 void cleanList(List * list) {
