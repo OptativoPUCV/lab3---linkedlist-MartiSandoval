@@ -113,27 +113,22 @@ void * popBack(List * list) {
 
 void *popCurrent(List * list) {
   if (list->head == NULL) return NULL;
-    
-  else if (list->current == list->head) {
-    void * dato = list->head->data;
+  void *dato = list->current->data;  
+  if (list->current == list->head) {
     list->head = list->head->next;
     list->head->prev = NULL;  
-    return dato;
+  
   }
   else if (list->current->next == NULL) { 
-    void* dato = list->tail->data;
     list->tail = list->current->prev;
     list->current->prev->next = NULL;
-    return dato;
   }
   else {
-    void* dato = list->current->data;
     list->current->prev->next = list->current->next;
     list->current->next->prev = list->current->prev;
-    return dato;
   }
   
-    return NULL;
+    return dato;
 }
 
 void cleanList(List * list) {
